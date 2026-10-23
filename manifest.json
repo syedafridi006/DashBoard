@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Dashify // Dynamic Island",
+  "version": "1.2",
+  "description": "A glass-style new tab dashboard with website usage, live system metrics and on-demand network speed tests.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "system.cpu",
+    "system.memory",
+    "system.network"
+  ],
+  "background": {
+    "service_worker": "background-site-usage.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https://speed.cloudflare.com"
+  },
+  "host_permissions": [
+    "https://speed.cloudflare.com/*"
+  ]
+}
